@@ -9,6 +9,10 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+.env
+pnpm-lock.yaml
+yarn.lock
+next-env.d.ts
 
 # testing
 /coverage
