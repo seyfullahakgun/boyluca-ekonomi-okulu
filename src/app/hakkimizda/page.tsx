@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { GraduationCap, Target, Award, Users } from "lucide-react"
+import {  Target, Award } from "lucide-react"
 
 const teamMembers = [
   {
@@ -47,7 +47,7 @@ const milestones = [
   {
     year: "2014",
     title: "Kuruluş",
-    description: "Boyluca Ekonomi Okulu'nun temelleri atıldı"
+    description: "Boyluca Ekonomi Okulu&apos;nun temelleri atıldı"
   },
   {
     year: "2016",
@@ -57,7 +57,7 @@ const milestones = [
   {
     year: "2018",
     title: "Uluslararası İşbirlikleri",
-    description: "Avrupa ve ABD'deki üniversitelerle işbirlikleri başladı"
+    description: "Avrupa ve ABD&apos;deki üniversitelerle işbirlikleri başladı"
   },
   {
     year: "2020",
@@ -67,7 +67,7 @@ const milestones = [
   {
     year: "2022",
     title: "1000+ Mezun",
-    description: "1000'den fazla öğrenci başarıyla mezun oldu"
+    description: "1000&apos;den fazla öğrenci başarıyla mezun oldu"
   },
   {
     year: "2024",
@@ -188,7 +188,7 @@ export default function HakkimizdaPage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base">
-                    Türkiye'nin önde gelen ekonomi eğitim kurumu olmak ve 
+                    Türkiye&apos;nin önde gelen ekonomi eğitim kurumu olmak ve 
                     uluslararası standartlarda eğitim veren bir kurum haline gelmek.
                   </CardDescription>
                 </CardContent>

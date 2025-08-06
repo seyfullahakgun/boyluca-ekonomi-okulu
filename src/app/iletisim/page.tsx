@@ -1,17 +1,29 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react"
-import { toast } from "sonner"
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { toast } from "sonner";
 
 const contactFormSchema = z.object({
   firstName: z.string().min(2, "Ad en az 2 karakter olmalıdır"),
@@ -20,60 +32,63 @@ const contactFormSchema = z.object({
   phone: z.string().optional(),
   subject: z.string().min(5, "Başlık en az 5 karakter olmalıdır"),
   message: z.string().min(10, "Mesaj en az 10 karakter olmalıdır"),
-  category: z.string().min(1, "Kategori seçiniz")
-})
+  category: z.string().min(1, "Kategori seçiniz"),
+});
 
-type ContactFormData = z.infer<typeof contactFormSchema>
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const contactInfo = [
   {
     icon: Mail,
     title: "E-posta",
     value: "info@boyluca.com",
-    description: "Genel sorularınız için"
+    description: "Genel sorularınız için",
   },
   {
     icon: Phone,
     title: "Telefon",
     value: "+90 212 555 0123",
-    description: "Pazartesi - Cuma, 09:00 - 18:00"
+    description: "Pazartesi - Cuma, 09:00 - 18:00",
   },
   {
     icon: MapPin,
     title: "Adres",
     value: "Levent, İstanbul",
-    description: "Merkez ofisimiz"
+    description: "Merkez ofisimiz",
   },
   {
     icon: Clock,
     title: "Çalışma Saatleri",
     value: "09:00 - 18:00",
-    description: "Pazartesi - Cuma"
-  }
-]
+    description: "Pazartesi - Cuma",
+  },
+];
 
 export default function IletisimPage() {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
+    reset,
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema)
-  })
+    resolver: zodResolver(contactFormSchema),
+  });
 
   const onSubmit = async (data: ContactFormData) => {
     try {
       // Simüle edilmiş form gönderimi
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      console.log("Form data:", data)
-      toast.success("Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.")
-      reset()
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      console.log("Form data:", data);
+      toast.success(
+        "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız."
+      );
+      reset();
     } catch (error) {
-      toast.error("Bir hata oluştu. Lütfen tekrar deneyiniz.")
+      console.error(error);
+      toast.error("Bir hata oluştu. Lütfen tekrar deneyiniz.");
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -90,8 +105,8 @@ export default function IletisimPage() {
               İletişim
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Sorularınız, önerileriniz veya işbirliği talepleriniz için 
-              bizimle iletişime geçebilirsiniz.
+              Sorularınız, önerileriniz veya işbirliği talepleriniz için bizimle
+              iletişime geçebilirsiniz.
             </p>
           </motion.div>
         </div>
@@ -110,13 +125,17 @@ export default function IletisimPage() {
                 viewport={{ once: true }}
               >
                 <Card className="text-center hover:shadow-lg transition-shadow">
-                                     <CardHeader>
-                     <info.icon className="h-8 w-8 text-accent mx-auto mb-2" />
-                     <CardTitle className="text-lg">{info.title}</CardTitle>
-                   </CardHeader>
+                  <CardHeader>
+                    <info.icon className="h-8 w-8 text-accent mx-auto mb-2" />
+                    <CardTitle className="text-lg">{info.title}</CardTitle>
+                  </CardHeader>
                   <CardContent>
-                    <p className="font-medium text-foreground mb-1">{info.value}</p>
-                    <p className="text-sm text-muted-foreground">{info.description}</p>
+                    <p className="font-medium text-foreground mb-1">
+                      {info.value}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {info.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -196,13 +215,19 @@ export default function IletisimPage() {
 
                     <div>
                       <Label htmlFor="category">Kategori *</Label>
-                      <Select onValueChange={(value) => register("category").onChange({ target: { value } })}>
+                      <Select
+                        onValueChange={(value) =>
+                          register("category").onChange({ target: { value } })
+                        }
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Kategori seçiniz" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="genel">Genel Bilgi</SelectItem>
-                          <SelectItem value="egitim">Eğitim Programları</SelectItem>
+                          <SelectItem value="egitim">
+                            Eğitim Programları
+                          </SelectItem>
                           <SelectItem value="isbirligi">İşbirliği</SelectItem>
                           <SelectItem value="sikayet">Şikayet/Öneri</SelectItem>
                           <SelectItem value="diger">Diğer</SelectItem>
@@ -244,7 +269,11 @@ export default function IletisimPage() {
                       )}
                     </div>
 
-                    <Button type="submit" disabled={isSubmitting} className="w-full">
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full"
+                    >
                       {isSubmitting ? (
                         "Gönderiliyor..."
                       ) : (
@@ -283,9 +312,18 @@ export default function IletisimPage() {
                     </div>
                   </div>
                   <div className="space-y-2 text-sm">
-                    <p><strong>Adres:</strong> Levent Mahallesi, Büyükdere Caddesi No:123, Şişli/İstanbul</p>
-                    <p><strong>Toplu Taşıma:</strong> M2 Levent Metro İstasyonu (5 dk yürüme)</p>
-                    <p><strong>Otopark:</strong> Binada ücretsiz otopark mevcuttur</p>
+                    <p>
+                      <strong>Adres:</strong> Levent Mahallesi, Büyükdere
+                      Caddesi No:123, Şişli/İstanbul
+                    </p>
+                    <p>
+                      <strong>Toplu Taşıma:</strong> M2 Levent Metro İstasyonu
+                      (5 dk yürüme)
+                    </p>
+                    <p>
+                      <strong>Otopark:</strong> Binada ücretsiz otopark
+                      mevcuttur
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -316,5 +354,5 @@ export default function IletisimPage() {
         </div>
       </section>
     </div>
-  )
-} 
+  );
+}
