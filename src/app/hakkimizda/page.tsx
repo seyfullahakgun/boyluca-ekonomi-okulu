@@ -137,16 +137,16 @@ export default function HakkimizdaPage() {
               viewport={{ once: true }}
               className="grid grid-cols-2 gap-4"
             >
-              <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
+              <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center border border-border">
                 <div className="text-muted-foreground text-sm">Resim 1</div>
               </div>
-              <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
+              <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center border border-border">
                 <div className="text-muted-foreground text-sm">Resim 2</div>
               </div>
-              <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
+              <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center border border-border">
                 <div className="text-muted-foreground text-sm">Resim 3</div>
               </div>
-              <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
+              <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center border border-border">
                 <div className="text-muted-foreground text-sm">Resim 4</div>
               </div>
             </motion.div>
@@ -160,13 +160,13 @@ export default function HakkimizdaPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card>
+              <Card className="border-border bg-card/90 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:border-primary/20">
                 <CardHeader>
                   <Target className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Misyonumuz</CardTitle>
+                  <CardTitle className="text-foreground">Misyonumuz</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">
+                  <CardDescription className="text-base text-muted-foreground">
                     Ekonomi alanında kaliteli eğitim sunarak, öğrencilerimizin 
                     teorik ve pratik becerilerini geliştirmek, onları geleceğin 
                     ekonomistleri olarak yetiştirmek.
@@ -181,13 +181,13 @@ export default function HakkimizdaPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card>
+              <Card className="border-border bg-card/90 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:border-secondary/20">
                 <CardHeader>
-                  <Award className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle>Vizyonumuz</CardTitle>
+                  <Award className="h-8 w-8 text-secondary mb-2" />
+                  <CardTitle className="text-foreground">Vizyonumuz</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">
+                  <CardDescription className="text-base text-muted-foreground">
                     Türkiye&apos;nin önde gelen ekonomi eğitim kurumu olmak ve 
                     uluslararası standartlarda eğitim veren bir kurum haline gelmek.
                   </CardDescription>
@@ -216,14 +216,14 @@ export default function HakkimizdaPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="text-center">
+                  <Card className="text-center border-border bg-card/90 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:border-accent/30">
                     <CardHeader>
-                                           <CardTitle className="text-2xl font-bold text-accent">
-                       {milestone.year}
-                     </CardTitle>
+                      <CardTitle className="text-2xl font-bold text-accent-foreground">
+                        {milestone.year}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-base font-medium mb-2">
+                      <CardDescription className="text-base font-medium mb-2 text-foreground">
                         {milestone.title}
                       </CardDescription>
                       <p className="text-sm text-muted-foreground">
@@ -255,15 +255,15 @@ export default function HakkimizdaPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="text-center hover:shadow-lg transition-shadow">
+                  <Card className="text-center hover:shadow-lg transition-all duration-300 border-border bg-card/90 backdrop-blur-sm hover:border-primary/20">
                     <CardHeader>
-                      <div className="w-24 h-24 mx-auto mb-4 bg-muted rounded-full flex items-center justify-center">
+                      <div className="w-24 h-24 mx-auto mb-4 bg-muted/30 rounded-full flex items-center justify-center border border-border">
                         <div className="text-muted-foreground text-sm">Fotoğraf</div>
                       </div>
-                      <CardTitle className="text-xl">{member.name}</CardTitle>
-                                             <CardDescription className="text-accent font-medium">
-                         {member.title}
-                       </CardDescription>
+                      <CardTitle className="text-xl text-foreground">{member.name}</CardTitle>
+                      <CardDescription className="text-muted-foreground font-medium">
+                        {member.title}
+                      </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground">

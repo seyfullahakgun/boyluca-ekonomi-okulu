@@ -59,7 +59,7 @@ const blogPosts = [
 
 export function AnnouncementsSection() {
   return (
-    <section className="py-16 bg-accent/20">
+    <section className="py-16 bg-gradient-to-b from-secondary/10 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ export function AnnouncementsSection() {
           >
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold text-foreground">Duyurular</h3>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-primary hover:text-primary hover:bg-primary/10">
                 Tümünü Gör
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -100,10 +100,10 @@ export function AnnouncementsSection() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="hover:shadow-md transition-shadow">
+                  <Card className="hover:shadow-lg transition-all duration-300 border-border bg-card/80 backdrop-blur-sm hover:border-primary/20">
                     <CardHeader className="pb-3">
                       <div className="flex items-center justify-between">
-                        <CardTitle className="text-lg">{announcement.title}</CardTitle>
+                        <CardTitle className="text-lg text-foreground">{announcement.title}</CardTitle>
                         <div className="flex items-center text-sm text-muted-foreground">
                           <Calendar className="h-4 w-4 mr-1" />
                           {announcement.date}
@@ -111,7 +111,7 @@ export function AnnouncementsSection() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-base">
+                      <CardDescription className="text-base text-muted-foreground">
                         {announcement.description}
                       </CardDescription>
                     </CardContent>
@@ -130,7 +130,7 @@ export function AnnouncementsSection() {
           >
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold text-foreground">Son Blog Yazıları</h3>
-              <Button variant="ghost" size="sm" asChild>
+              <Button variant="ghost" size="sm" asChild className="text-primary hover:text-primary hover:bg-primary/10">
                 <Link href="/blog">
                   Tümünü Gör
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -146,9 +146,9 @@ export function AnnouncementsSection() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="hover:shadow-md transition-shadow">
+                  <Card className="hover:shadow-lg transition-all duration-300 border-border bg-card/80 backdrop-blur-sm hover:border-secondary/20">
                     <CardHeader className="pb-3">
-                      <CardTitle className="text-lg">{post.title}</CardTitle>
+                      <CardTitle className="text-lg text-foreground">{post.title}</CardTitle>
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
                         <span>{post.author}</span>
                         <div className="flex items-center">
@@ -160,7 +160,7 @@ export function AnnouncementsSection() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-base">
+                      <CardDescription className="text-base text-muted-foreground">
                         {post.excerpt}
                       </CardDescription>
                     </CardContent>

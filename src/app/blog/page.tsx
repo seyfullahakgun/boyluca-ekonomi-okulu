@@ -122,24 +122,24 @@ export default function BlogPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="aspect-video bg-muted rounded-t-lg flex items-center justify-center">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border bg-card/90 backdrop-blur-sm hover:border-primary/20">
+                  <div className="aspect-video bg-secondary/20 rounded-t-lg flex items-center justify-center border-b border-border">
                     <div className="text-muted-foreground text-sm">Resim</div>
                   </div>
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between mb-2">
-                                             <span className="text-xs font-medium text-accent-foreground bg-accent/20 px-2 py-1 rounded">
-                         {post.category}
-                       </span>
+                      <span className="text-xs font-medium text-secondary-foreground bg-secondary/30 px-2 py-1 rounded border border-border">
+                        {post.category}
+                      </span>
                       <div className="flex items-center text-xs text-muted-foreground">
                         <Clock className="h-3 w-3 mr-1" />
                         {post.readTime}
                       </div>
                     </div>
-                    <CardTitle className="text-xl line-clamp-2">{post.title}</CardTitle>
+                    <CardTitle className="text-xl line-clamp-2 text-foreground">{post.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <CardDescription className="text-base line-clamp-3 mb-4">
+                    <CardDescription className="text-base line-clamp-3 mb-4 text-muted-foreground">
                       {post.excerpt}
                     </CardDescription>
                     <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
@@ -152,13 +152,13 @@ export default function BlogPage() {
                         {post.date}
                       </div>
                     </div>
-                                         <Link 
-                       href={`/blog/${post.id}`}
-                       className="inline-flex items-center text-accent hover:text-accent/80 transition-colors"
-                     >
-                       Devamını Oku
-                       <ArrowRight className="ml-1 h-4 w-4" />
-                     </Link>
+                    <Link 
+                      href={`/blog/${post.id}`}
+                      className="inline-flex items-center text-primary hover:text-primary/80 transition-colors hover:bg-primary/10 px-2 py-1 rounded-md"
+                    >
+                      Devamını Oku
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>

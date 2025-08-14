@@ -1,87 +1,47 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@theme {
+  --color-background: rgb(255, 255, 255);
+  --color-foreground: rgb(26, 26, 26);
+  --color-card: rgb(255, 255, 255);
+  --color-card-foreground: rgb(26, 26, 26);
+  --color-popover: rgb(255, 255, 255);
+  --color-popover-foreground: rgb(26, 26, 26);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --font-sans: var(--font-space-grotesk);
-  --font-mono: var(--font-space-grotesk);
-}
+  /* Yeni Renk Paleti - RGB formatında */
+  --color-primary: rgb(17, 11, 78); /* #110b4e - Lacivert */
+  --color-primary-foreground: rgb(255, 255, 255); /* #ffffff - Beyaz */
+  --color-secondary: rgb(127, 213, 141); /* #7fd58d - Açık yeşil */
+  --color-secondary-foreground: rgb(26, 26, 26); /* #1a1a1a - Koyu metin */
+  --color-accent: rgb(228, 254, 191); /* #e4febf - Açık sarı */
+  --color-accent-foreground: rgb(45, 79, 92); /* #2d4f5c - Koyu yeşil */
+  --color-muted: rgb(186, 173, 243); /* #baadf3 - Pastel mor */
+  --color-muted-foreground: rgb(45, 79, 92); /* #2d4f5c - Koyu yeşil */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --popover: #ffffff;
-  --popover-foreground: #171717;
-  --primary: #f9f9f9;
-  --primary-foreground: #171717;
-  --secondary: #f0f0f0;
-  --secondary-foreground: #171717;
-  --muted: #999d9e;
-  --muted-foreground: #545557;
-  --accent: #d2d2d2;
-  --accent-foreground: #171717;
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
-  --border: #e5e7eb;
-  --input: #ffffff;
-  --ring: #f9f9f9;
+  /* Ek Renkler */
+  --color-destructive: rgb(239, 68, 68);
+  --color-destructive-foreground: rgb(255, 255, 255);
+  --color-border: rgb(229, 231, 235);
+  --color-input: rgb(255, 255, 255);
+  --color-ring: rgb(17, 11, 78);
+
+  /* Font */
+  --font-sans: system-ui, sans-serif;
+  --font-mono: system-ui, monospace;
+
+  /* Border Radius */
   --radius: 0.5rem;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --card: #0a0a0a;
-    --card-foreground: #ededed;
-    --popover: #0a0a0a;
-    --popover-foreground: #ededed;
-    --primary: #545557;
-    --primary-foreground: #fafafa;
-    --secondary: #999d9e;
-    --secondary-foreground: #fafafa;
-    --muted: #f0f0f0;
-    --muted-foreground: #f9f9f9;
-    --accent: #d2d2d2;
-    --accent-foreground: #0a0a0a;
-    --destructive: #ef4444;
-    --destructive-foreground: #fafafa;
-    --border: #27272a;
-    --input: #0a0a0a;
-    --ring: #545557;
-  }
-}
-
+s
 * {
-  border-color: hsl(var(--border));
+  border-color: rgb(var(--color-border));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-sans);
 }
 
 /* Smooth scrolling */
@@ -95,14 +55,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+  background: rgb(var(--color-muted));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: rgb(var(--color-accent));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: rgb(var(--color-secondary));
 }

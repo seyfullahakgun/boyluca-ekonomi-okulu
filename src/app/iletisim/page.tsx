@@ -124,10 +124,10 @@ export default function IletisimPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="text-center hover:shadow-lg transition-shadow">
+                <Card className="text-center hover:shadow-lg transition-all duration-300 border-border bg-card/90 backdrop-blur-sm hover:border-primary/20">
                   <CardHeader>
-                    <info.icon className="h-8 w-8 text-accent mx-auto mb-2" />
-                    <CardTitle className="text-lg">{info.title}</CardTitle>
+                    <info.icon className="h-8 w-8 text-primary mx-auto mb-2" />
+                    <CardTitle className="text-lg text-foreground">{info.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="font-medium text-foreground mb-1">
@@ -150,10 +150,10 @@ export default function IletisimPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card>
+              <Card className="border-border bg-card/90 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Mesaj Gönderin</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-2xl text-foreground">Mesaj Gönderin</CardTitle>
+                  <CardDescription className="text-muted-foreground">
                     Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz.
                   </CardDescription>
                 </CardHeader>
@@ -161,11 +161,12 @@ export default function IletisimPage() {
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="firstName">Ad *</Label>
+                        <Label htmlFor="firstName" className="text-foreground">Ad *</Label>
                         <Input
                           id="firstName"
                           {...register("firstName")}
                           placeholder="Adınız"
+                          className="border-border bg-background"
                         />
                         {errors.firstName && (
                           <p className="text-sm text-destructive mt-1">
@@ -174,11 +175,12 @@ export default function IletisimPage() {
                         )}
                       </div>
                       <div>
-                        <Label htmlFor="lastName">Soyad *</Label>
+                        <Label htmlFor="lastName" className="text-foreground">Soyad *</Label>
                         <Input
                           id="lastName"
                           {...register("lastName")}
                           placeholder="Soyadınız"
+                          className="border-border bg-background"
                         />
                         {errors.lastName && (
                           <p className="text-sm text-destructive mt-1">
@@ -190,12 +192,13 @@ export default function IletisimPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="email">E-posta *</Label>
+                        <Label htmlFor="email" className="text-foreground">E-posta *</Label>
                         <Input
                           id="email"
                           type="email"
                           {...register("email")}
                           placeholder="ornek@email.com"
+                          className="border-border bg-background"
                         />
                         {errors.email && (
                           <p className="text-sm text-destructive mt-1">
@@ -204,23 +207,24 @@ export default function IletisimPage() {
                         )}
                       </div>
                       <div>
-                        <Label htmlFor="phone">Telefon</Label>
+                        <Label htmlFor="phone" className="text-foreground">Telefon</Label>
                         <Input
                           id="phone"
                           {...register("phone")}
                           placeholder="+90 555 123 4567"
+                          className="border-border bg-background"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="category">Kategori *</Label>
+                      <Label htmlFor="category" className="text-foreground">Kategori *</Label>
                       <Select
                         onValueChange={(value) =>
                           register("category").onChange({ target: { value } })
                         }
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="border-border bg-background">
                           <SelectValue placeholder="Kategori seçiniz" />
                         </SelectTrigger>
                         <SelectContent>
@@ -241,11 +245,12 @@ export default function IletisimPage() {
                     </div>
 
                     <div>
-                      <Label htmlFor="subject">Başlık *</Label>
+                      <Label htmlFor="subject" className="text-foreground">Başlık *</Label>
                       <Input
                         id="subject"
                         {...register("subject")}
                         placeholder="Mesajınızın başlığı"
+                        className="border-border bg-background"
                       />
                       {errors.subject && (
                         <p className="text-sm text-destructive mt-1">
@@ -255,12 +260,13 @@ export default function IletisimPage() {
                     </div>
 
                     <div>
-                      <Label htmlFor="message">Mesaj *</Label>
+                      <Label htmlFor="message" className="text-foreground">Mesaj *</Label>
                       <Textarea
                         id="message"
                         {...register("message")}
                         placeholder="Mesajınızı buraya yazın..."
                         rows={5}
+                        className="border-border bg-background"
                       />
                       {errors.message && (
                         <p className="text-sm text-destructive mt-1">
@@ -272,7 +278,7 @@ export default function IletisimPage() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full"
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                     >
                       {isSubmitting ? (
                         "Gönderiliyor..."
@@ -296,15 +302,15 @@ export default function IletisimPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <Card>
+              <Card className="border-border bg-card/90 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle>Konumumuz</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-foreground">Konumumuz</CardTitle>
+                  <CardDescription className="text-muted-foreground">
                     Merkez ofisimiz Levent, İstanbul&apos;da bulunmaktadır.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="aspect-video bg-muted rounded-lg flex items-center justify-center mb-4">
+                  <div className="aspect-video bg-secondary/20 rounded-lg flex items-center justify-center mb-4 border border-border">
                     <div className="text-muted-foreground text-center">
                       <MapPin className="h-8 w-8 mx-auto mb-2" />
                       <p>Google Maps</p>
@@ -328,22 +334,22 @@ export default function IletisimPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-border bg-card/90 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle>Çalışma Saatleri</CardTitle>
+                  <CardTitle className="text-foreground">Çalışma Saatleri</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span>Pazartesi - Cuma</span>
-                      <span className="font-medium">09:00 - 18:00</span>
+                      <span className="text-foreground">Pazartesi - Cuma</span>
+                      <span className="font-medium text-foreground">09:00 - 18:00</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Cumartesi</span>
-                      <span className="font-medium">10:00 - 16:00</span>
+                      <span className="text-foreground">Cumartesi</span>
+                      <span className="font-medium text-foreground">10:00 - 16:00</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Pazar</span>
+                      <span className="text-foreground">Pazar</span>
                       <span className="text-muted-foreground">Kapalı</span>
                     </div>
                   </div>
